@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.wangjw.gdmapdemo"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    //签名配置
+    signingConfigs {
+        debug {
+            storeFile file(getRootDir().getPath() + "/config/debug/${STORE_FILE_NAME_DEBUG}")
+            storePassword "${STORE_PASSWORD}"
+            keyAlias "${KEY_ALIAS}"
+            keyPassword "${KEY_PASSWORD}"
+        }
+
+        release {
+            storeFile file(getRootDir().getPath() + "/config/release/${STORE_FILE_NAME}")
+            storePassword "${STORE_PASSWORD}"
+            keyAlias "${KEY_ALIAS}"
+            keyPassword "${KEY_PASSWORD}"
+        }
+    }
+
+    buildTypes {
+        //生成一个debug的包
+        debug {
+            debuggable true
+            //是否进行混淆
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+
+        //生成一个release的包
+        release {
+            //是否进行混淆
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.lovedise:permissiongen:0.0.6'
+}

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GDMapDemo</string>
+
+    <string name="need_grant_location_permission">缺少定位权限, 请在设置中打开</string>
+</resources>

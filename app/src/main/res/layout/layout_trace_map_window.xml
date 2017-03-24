@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="background-color: rgb(255, 255, 102);"
+    android:layout_width="240dp"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/TextView_Name"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="德天度假山庄"
+            android:textColor="#646464"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/TextView_Local"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="中国>浙江>杭州"
+            android:textColor="#AFAFAF" />
+
+    </LinearLayout>
+
+</RelativeLayout>
